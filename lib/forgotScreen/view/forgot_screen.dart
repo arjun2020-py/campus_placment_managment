@@ -80,7 +80,7 @@ class ForgotPass extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => const OtpScreen(),
+                            builder: (context) => const VerficationScreen(),
                           ),
                         );
                       },

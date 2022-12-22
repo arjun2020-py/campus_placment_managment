@@ -10,7 +10,7 @@ class BottomNaivgation extends StatefulWidget {
 
 class _BottomNaivgationState extends State<BottomNaivgation> {
   int _selectedIndex = 0;
-  List<Widget> _widgetOption = [
+  final List<Widget> _widgetOption = [
     const Center(
       child: Text(
         'Home',
@@ -30,6 +30,10 @@ class _BottomNaivgationState extends State<BottomNaivgation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+      ),
+      body: _widgetOption[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(

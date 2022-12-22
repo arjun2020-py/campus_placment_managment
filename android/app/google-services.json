@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "298638847330",
+    "project_id": "campus-3e568",
+    "storage_bucket": "campus-3e568.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298638847330:android:cadcd6dc62477d0a8c103b",
+        "android_client_info": {
+          "package_name": "com.baabtra.crms.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298638847330-41n4t2vhqr480qcsmif2cme0pgpinsjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMecivx7cmq6MpAH0kp6MdM8IsAfW9iBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298638847330-41n4t2vhqr480qcsmif2cme0pgpinsjq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
