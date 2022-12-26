@@ -84,7 +84,7 @@ class _LottieSplahState extends State<LottieSplah> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 23), () {
+    Future.delayed(const Duration(seconds: 10), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const IntroScreen(),
