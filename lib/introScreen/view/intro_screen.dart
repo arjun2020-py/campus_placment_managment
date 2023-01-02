@@ -18,53 +18,55 @@ class _IntroScreenState extends State<IntroScreen> {
     return Scaffold(
       backgroundColor: const Color(0xff01c4b2),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 150.r),
-                child: const Text(
-                  'Welcome',
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: Color(0xffffffff),
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            // SizedBox(
-            //   height: 10.h,
-            // ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 100.r),
-              child: Image.asset(
-                'assets/images/pic1.png',
-              ),
-            ),
-            SizedBox(
-              width: 300.w,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 150.r),
+                  child: const Text(
+                    'Welcome',
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Color(0xffffffff),
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Color(0xff1C315E),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
                   ),
-                  side: const BorderSide(width: 3, color: Color(0xffE6E2C3)),
                 ),
-                child: const Text("Let's Go"),
               ),
-            )
-          ],
+              // SizedBox(
+              //   height: 10.h,
+              // ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 100.r),
+                child: Image.asset(
+                  'assets/images/pic1.png',
+                ),
+              ),
+              SizedBox(
+                width: 300.w,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xff1C315E),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    side: const BorderSide(width: 3, color: Color(0xffE6E2C3)),
+                  ),
+                  child: const Text("Let's Go"),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -9,13 +9,14 @@ SizedBox elevatorbttn(BuildContext context) {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: SizedBox(
         child: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const BottomNaivgation(),
-              ),
-            );
-          },
+          onPressed: () {},
+          // onPressed: () {
+          //   Navigator.of(context).push(
+          //     MaterialPageRoute(
+          //       builder: (context) => const BottomNaivgation(),
+          //     ),
+          //   );
+          // },
           style: ElevatedButton.styleFrom(
             primary: Colors.amber,
             shape: RoundedRectangleBorder(
