@@ -1,3 +1,4 @@
+import 'package:crms/bottomNavigation/bottom_navigation.dart';
 import 'package:crms/l10n/l10n.dart';
 import 'package:crms/loginScreen/login_screen.dart';
 import 'package:crms/splashScreen/splash.dart';
@@ -22,7 +23,7 @@ class App extends StatelessWidget {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: LottieSplah(),
-          routes: {'login': (context) => LoginScreen()},
+          routes: {'login': (context) => BottomNaivgation()},
         );
       },
     );

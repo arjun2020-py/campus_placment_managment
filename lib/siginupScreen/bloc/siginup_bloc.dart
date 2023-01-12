@@ -10,7 +10,7 @@ class SiginupBloc extends Bloc<SiginupEvent, SiginupState> {
   SiginupBloc() : super(SiginupInitial()) {
     on<SiginupEvent>((event, emit) async {
       if (event is SiginupAuthEvent) {
-         final auth = FirebaseAuth.instance;
+        final auth = FirebaseAuth.instance;
         final companyUserRef =
             FirebaseFirestore.instance.collection('student_users');
 
@@ -25,7 +25,7 @@ class SiginupBloc extends Bloc<SiginupEvent, SiginupState> {
             'mobNo': event.mobileNo,
             'passwrod': event.pass,
             'confromPass': event.confromPass,
-            'profileImage': '',
+            'profileImages': '',
           });
           emit(SiginupAuthSucess());
         } catch (e) {
