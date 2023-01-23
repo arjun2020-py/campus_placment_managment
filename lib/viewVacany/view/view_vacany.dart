@@ -12,6 +12,8 @@ class ViewJob extends StatelessWidget {
   CollectionReference jobColl =
       FirebaseFirestore.instance.collection('job_vacancy');
   final auth = FirebaseAuth.instance;
+
+  bool searchState = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,9 @@ class ViewJob extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back_ios),
         ),
+        centerTitle: true,
         title: const Text('View Vacancy'),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: jobColl.snapshots(),
@@ -40,7 +44,8 @@ class ViewJob extends StatelessWidget {
                 return InkWell(
                   onTap: () => Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) =>  DetailsViewScreen(DetailsJob: jObItms[index]),
+                      builder: (context) =>
+                          DetailsViewScreen(DetailsJob: jObItms[index]),
                     ),
                   ),
                   child: Container(

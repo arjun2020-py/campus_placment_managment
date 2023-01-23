@@ -39,7 +39,7 @@ class _SiginupScreenState extends State<SiginupScreen> {
         },
         child: Scaffold(
           body: Padding(
-            padding: const EdgeInsets.all(15),
+            padding: EdgeInsets.all(15.r),
             child: SafeArea(
               child: SingleChildScrollView(
                 child: Container(
@@ -152,39 +152,55 @@ class _SiginupScreenState extends State<SiginupScreen> {
                       ),
                       SizedBox(
                         width: 250,
-                        child: ElevatedButton(
-                          onPressed: () => _siginupBloc.add(SiginupAuthEvent(
-                              name: nameController.text,
-                              email: emailController.text,
-                              mobileNo: mobileController.text,
-                              pass: passController.text,
-                              confromPass: confromPassController.text,),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () => _siginupBloc.add(
+                                SiginupAuthEvent(
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  mobileNo: mobileController.text,
+                                  pass: passController.text,
+                                  confromPass: confromPassController.text,
+                                ),
                               ),
-                          // onPressed: () {
+                              // onPressed: () {
 
-                          //   // Navigator.of(context).pushReplacement(
-                          //   //   MaterialPageRoute(
-                          //   //     builder: (context) => LoginScreen(),
-                          //   //   ),
-                          //   // );
-                          // },
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.amber,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              //   // Navigator.of(context).pushReplacement(
+                              //   //   MaterialPageRoute(
+                              //   //     builder: (context) => LoginScreen(),
+                              //   //   ),
+                              //   // );
+                              // },
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.amber,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                side: const BorderSide(
+                                    width: 3, color: Colors.black),
+                              ),
+                              child: const Text('Signup'),
                             ),
-                            side:
-                                const BorderSide(width: 3, color: Colors.black),
-                          ),
-                          child: const Text('Signup'),
+                            SizedBox(
+                              width: 15.w,
+                            ),
+                            Text('Alreday login ?'),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('Login')),
+                          ],
                         ),
                       ),
+
                       Row(
                         children: [
                           Expanded(
                             child: Container(
-                              margin: const EdgeInsets.only(
-                                  left: 10.0, right: 20.0),
+                              margin:
+                                  EdgeInsets.only(left: 10.0.r, right: 20.0.r),
                               child: const Divider(
                                 color: Colors.black,
                               ),
@@ -244,6 +260,7 @@ class _SiginupScreenState extends State<SiginupScreen> {
                           )
                         ],
                       ),
+
                       // Row(
                       //   mainAxisAlignment: MainAxisAlignment.center,
                       //   children: [

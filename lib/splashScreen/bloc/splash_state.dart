@@ -1,0 +1,10 @@
+part of 'splash_bloc.dart';
+
+@immutable
+abstract class SplashState {}
+
+class SplashInitial extends SplashState {}
+
+class SplashScreenSucesses extends SplashState {}
+
+class SplashScreenFailed extends SplashState {}

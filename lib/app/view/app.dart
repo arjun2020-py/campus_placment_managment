@@ -22,7 +22,7 @@ class App extends StatelessWidget {
           ),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          home: LottieSplah(),
+          home: BottomNaivgation(),
           routes: {'login': (context) => BottomNaivgation()},
         );
       },

@@ -15,7 +15,7 @@ class JobDetailsBloc extends Bloc<JobDetailsEvent, JobDetailsState> {
 
         final auth = FirebaseAuth.instance;
 
-        apply_jobs.add({'userId': auth.currentUser!.uid, 'jobId': event.jobId});
+        apply_jobs.add({'userId': auth.currentUser!.uid, 'jobId': event.jobId,'status':''});
         emit(JobAppliedSuccess());
       } else {
         emit(JobAppliedFailed());
