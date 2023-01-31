@@ -30,6 +30,7 @@ class _MyJobScreenState extends State<MyJobScreen> {
     final appliedJobsCollection =
         FirebaseFirestore.instance.collection('aplied_jobs');
 
+    final job_app = FirebaseFirestore.instance.collection('Job_Application');
     final jobsCollection = FirebaseFirestore.instance.collection('job_vacancy');
 
     final myJobs = await appliedJobsCollection
@@ -44,7 +45,8 @@ class _MyJobScreenState extends State<MyJobScreen> {
     final aplliedJobs = <DocumentSnapshot<Map<String, dynamic>>>[];
 
     for (final element in myJobs.docs) {
-      myJobIds.add(element['jobId'].toString());
+      myJobIds.add(element['jobId'].toString(),);
+     // myJobIds.add(element['status'].toString());
     }
 
     for (var i = 0; i < myJobIds.length; i++) {
@@ -106,7 +108,7 @@ class _MyJobScreenState extends State<MyJobScreen> {
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
                   onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => DetaildMyJobScreen(),
+                    builder: (context) => DetaildMyJobScreen(detailsJob:jobData[index] ),
                   )),
                   child: Card(
                     child: Column(

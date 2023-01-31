@@ -6,14 +6,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../bottomNavigation/view/bottom_navigation.dart';
 
-class ViewJob extends StatelessWidget {
+class ViewJob extends StatefulWidget {
   ViewJob({super.key});
 
+  @override
+  State<ViewJob> createState() => _ViewJobState();
+}
+
+class _ViewJobState extends State<ViewJob> {
   CollectionReference jobColl =
       FirebaseFirestore.instance.collection('job_vacancy');
+
   final auth = FirebaseAuth.instance;
 
   bool searchState = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,8 +36,43 @@ class ViewJob extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios),
         ),
         centerTitle: true,
-        title: const Text('View Vacancy'),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
+        title: !searchState
+            ? const Text('View Vacancy')
+            : TextFormField(
+                decoration: const InputDecoration(
+                    icon: Icon(Icons.search),
+                    hintText: 'Search....',
+                    hintStyle: TextStyle(color: Colors.white)),
+                onChanged: (value) {
+                  searchMethod(value);
+                },
+              ),
+        actions: [
+          if (!searchState)
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  searchState = !searchState;
+                });
+              },
+              icon: const Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+            )
+          else
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  searchState = !searchState;
+                });
+              },
+              icon: const Icon(
+                Icons.cancel,
+                color: Colors.white,
+              ),
+            )
+        ],
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: jobColl.snapshots(),
@@ -100,4 +142,15 @@ class ViewJob extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> searchMethod(String value) async {
+  ListView.builder(
+    itemCount: 1,
+    itemBuilder: (BuildContext context, int index) {
+      return ListTile(
+        title: Text('data'),
+      );
+    },
+  );
 }

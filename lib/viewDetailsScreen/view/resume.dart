@@ -69,7 +69,7 @@ class _UploadPdfState extends State<UploadPdf> {
                 child: ElevatedButton(
                     onPressed: uploadFile, child: const Text('Upload Pdf')),
               ),
-              // task != null ? buildUploadStatus(task!) : Container(),
+              task != null ? buildUploadStatus(task!) : Container(),
             ],
           ),
         ),
@@ -95,40 +95,7 @@ class _UploadPdfState extends State<UploadPdf> {
     }
   }
 
-  // Future selectFile() async {
-  //   final result = await FilePicker.platform.pickFiles();
-
-  //   if (result == null) return;
-
-  //   //open  file
-
-  //   final path = result.files.toString();
-
-  //   setState(() => file = File(path));
-  // }
-
-  // Future uploadFile() async {
-  //   if (file == null) return;
-  //   print(
-  //     '---------------------------------------------------------------------------------',
-  //   );
-  //   final fileName = basename(file!.path);
-  //   final destination = 'Filles/$fileName';
-
-  //   task = FirebasePage.uploadFiles(destination, file!);
-  //   setState(() {});
-
-  //   if (task == null) return;
-
-  //   final snapshot = await task!.whenComplete(
-  //     () {},
-  //   );
-  //   final urlDownload = await snapshot.ref.getDownloadURL();
-
-  //   print('Download link $urlDownload');
-  // }
-
-  Future<dynamic> uploadFile() async {
+   Future<dynamic> uploadFile() async {
     try {
       final imagefile =
           FirebaseStorage.instance.ref().child('Users').child('/$name');
@@ -149,15 +116,18 @@ class _UploadPdfState extends State<UploadPdf> {
         );
       }
     } on Exception catch (e) {
-      unawaited(
+      await
         Fluttertoast.showToast(
           msg: e.toString(),
           textColor: Colors.red,
-        ),
+        
       );
     }
   }
 
+
+  
+ 
   Widget buildUploadStatus(UploadTask task) => StreamBuilder<TaskSnapshot>(
         stream: task.snapshotEvents,
         builder: (context, snapshot) {
