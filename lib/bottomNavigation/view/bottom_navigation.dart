@@ -17,7 +17,7 @@ class BottomNaivgation extends StatefulWidget {
 class _BottomNaivgationState extends State<BottomNaivgation> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOption = [
-    const HomeScreen(),
+     HomeScreen(),
     FillFormScreen(),
     ViewJob(),
     MyJobScreen(),
